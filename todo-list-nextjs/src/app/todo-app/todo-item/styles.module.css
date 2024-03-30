@@ -1,0 +1,10 @@
+.card {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--on-background);
+    border-top: 5px solid;
+}
+
+.card_title {
+    margin: 4px 0;
+}

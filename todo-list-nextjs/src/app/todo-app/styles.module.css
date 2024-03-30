@@ -1,0 +1,25 @@
+.todo_list {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 16px 8px;
+}
+
+.card {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--on-background);
+    border-top: 5px solid;
+}
+
+.card_title {
+    margin: 4px 0;
+}
+
+.card_createdAt {
+    color: var(--on-background);
+    font-size: 12px;
+    margin: 4px 0;
+    font-style: italic;
+}
