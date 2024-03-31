@@ -11,15 +11,18 @@
     border-radius: 8px;
     border: 1px solid var(--on-background);
     border-top: 5px solid;
+    margin-bottom: 16px;
+    &__title {
+        margin: 4px 0;
+    }
+    &__createAt {
+        color: var(--on-background);
+        font-size: 12px;
+        margin:4px 0;
+        font-style: italic;
+    }
+    &__description {
+        margin-top: 5px;
+    }
 }
 
-.card_title {
-    margin: 4px 0;
-}
-
-.card_createdAt {
-    color: var(--on-background);
-    font-size: 12px;
-    margin: 4px 0;
-    font-style: italic;
-}
