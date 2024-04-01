@@ -1,11 +1,47 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import TodoCard from "./todocard";
+import TodoCard from "../components/todocard/todocard";
+import { TodoCardType } from "@/components/todocard/enum";
+
 
 export default function Home() {
-  return (
+    return (
     <main className={styles.main}>
-    <TodoCard/>     
+      <div className={styles.grid}>      
+        <div className={styles.column}>
+          <h2>To Do</h2>
+          <TodoCard
+            activity={'Melanjutkan membaca buku'}
+            deadline={'30/12/2024'}
+            type={TodoCardType.Todo}
+          />
+        </div>
+        <div className={styles.column}>
+          <h2>In Progress</h2>
+          <TodoCard
+            activity={'Melanjutkan membaca buku'}
+            deadline={'30/12/2024'}
+            type={TodoCardType.InProgress}
+          />
+        </div>
+        <div className={styles.column}>
+          <h2>Completed</h2>
+          <TodoCard
+            activity={'Melanjutkan membaca buku'}
+            deadline={'30/12/2024'}
+            type={TodoCardType.Completed}
+          />
+        </div>
+        <div className={styles.column}>
+          <h2>Hold</h2>
+          <TodoCard
+            activity={'Melanjutkan membaca buku'}
+            deadline={'30/12/2024'}
+            type={TodoCardType.Hold}
+          />
+        </div>     
+      </div>
+
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;

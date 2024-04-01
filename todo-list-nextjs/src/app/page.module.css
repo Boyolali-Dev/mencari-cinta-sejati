@@ -105,6 +105,26 @@
   transform: translateZ(0);
 }
 
+/* tambahan */
+.column {
+  flex: 1;
+  margin: 0 1rem;
+  max-width: calc(1140px / 4 - 2rem);
+  width: 25%;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    flex-direction: column;
+  }
+}
+/* tambahan */
+
 .logo {
   position: relative;
 }
