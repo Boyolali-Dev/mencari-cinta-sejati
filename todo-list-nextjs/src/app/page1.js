@@ -1,76 +1,44 @@
-'use client'
-
 import Image from "next/image";
 import styles from "./page.module.css";
 import TodoCard from "../components/todocard/todocard";
 import { TodoCardType } from "@/components/todocard/enum";
-import { useState } from "react"; // Tambahkan useState
+
 
 export default function Home() {
-  const [cards, setCards] = useState([
-    { id: 1, activity: "Melanjutkan membaca buku", deadline: "30/12/2024", type: TodoCardType.Todo },
-    { id: 2, activity: "Melanjutkan membaca buku", deadline: "30/12/2024", type: TodoCardType.InProgress },
-    { id: 3, activity: "Melanjutkan membaca buku", deadline: "30/12/2024", type: TodoCardType.Completed },
-    { id: 4, activity: "Melanjutkan membaca buku", deadline: "30/12/2024", type: TodoCardType.Hold },
-  ]);
-
-  // Fungsi untuk memindahkan kartu ke Completed
-  const handleComplete = (id) => {
-    setCards((prevCards) =>
-      prevCards.map((card) =>
-        card.id === id ? { ...card, type: TodoCardType.Completed } : card
-      )
-    );
-  };
-
-  // Fungsi untuk memindahkan kartu ke In Progress
-  const handleInProgress = (id) => {
-    setCards((prevCards) =>
-      prevCards.map((card) =>
-        card.id === id ? { ...card, type: TodoCardType.InProgress } : card
-      )
-    );
-  };
-
-  // Fungsi untuk memindahkan kartu ke Hold
-  const handleHold = (id) => {
-    setCards((prevCards) =>
-      prevCards.map((card) =>
-        card.id === id ? { ...card, type: TodoCardType.Hold } : card
-      )
-    );
-  };
-
     return (
     <main className={styles.main}>
       <div className={styles.grid}>
         <div className={styles.column}>
           <h2>To Do</h2>
-          {/* Tampilkan kartu dengan tipe Todo */}
-          {cards.filter(card => card.type === TodoCardType.Todo).map(card => (
-            <TodoCard key={card.id} {...card} onComplete={handleComplete} onInProgress={handleInProgress} onHold={handleHold}/>
-          ))}
+          <TodoCard
+            activity={'Melanjutkan membaca buku'}
+            deadline={'30/12/2024'}
+            type={TodoCardType.Todo}
+          />
         </div>
         <div className={styles.column}>
           <h2>In Progress</h2>
-          {/* Tampilkan kartu dengan tipe InProgress */}
-          {cards.filter(card => card.type === TodoCardType.InProgress).map(card => (
-            <TodoCard key={card.id} {...card} onComplete={handleComplete} onInProgress={handleInProgress} onHold={handleHold}/>
-          ))}
+          <TodoCard
+            activity={'Melanjutkan membaca buku'}
+            deadline={'30/12/2024'}
+            type={TodoCardType.InProgress}
+          />
         </div>
         <div className={styles.column}>
           <h2>Completed</h2>
-           {/* Tampilkan kartu dengan tipe Completed */}
-           {cards.filter(card => card.type === TodoCardType.Completed).map(card => (
-            <TodoCard key={card.id} {...card} />
-          ))}
+          <TodoCard
+            activity={'Melanjutkan membaca buku'}
+            deadline={'30/12/2024'}
+            type={TodoCardType.Completed}
+          />
         </div>
         <div className={styles.column}>
           <h2>Hold</h2>
-          {/* Tampilkan kartu dengan tipe Hold */}
-          {cards.filter(card => card.type === TodoCardType.Hold).map(card => (
-            <TodoCard key={card.id} {...card} onComplete={handleComplete} onInProgress={handleInProgress} onHold={handleHold}/>
-          ))}
+          <TodoCard
+            activity={'Melanjutkan membaca buku'}
+            deadline={'30/12/2024'}
+            type={TodoCardType.Hold}
+          />
         </div>     
       </div>
 
