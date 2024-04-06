@@ -8,10 +8,10 @@ import { useState } from "react"; // Tambahkan useState
 
 export default function Home() {
   const [cards, setCards] = useState([
-    { id: 1, activity: "Melanjutkan membaca buku", deadline: "30/12/2024", type: TodoCardType.Todo },
-    { id: 2, activity: "Melanjutkan membaca buku", deadline: "30/12/2024", type: TodoCardType.InProgress },
-    { id: 3, activity: "Melanjutkan membaca buku", deadline: "30/12/2024", type: TodoCardType.Completed },
-    { id: 4, activity: "Melanjutkan membaca buku", deadline: "30/12/2024", type: TodoCardType.Hold },
+    { id: 1, activity: "Ngarit", deadline: "30/12/2024", type: TodoCardType.Todo },
+    { id: 2, activity: "Mepe jagung", deadline: "30/12/2024", type: TodoCardType.InProgress },
+    { id: 3, activity: "Gawe SPJ", deadline: "30/12/2024", type: TodoCardType.Completed },
+    { id: 4, activity: "Bayar UKT", deadline: "30/12/2024", type: TodoCardType.Hold },
   ]);
 
   // Fungsi untuk memindahkan kartu ke Completed
@@ -41,6 +41,11 @@ export default function Home() {
     );
   };
 
+  // Fungsi untuk menghapus card
+  const handleDelete = (id) => {
+    setCards(prevCards => prevCards.filter(card => card.id !== id));
+   };
+
     return (
     <main className={styles.main}>
       <div className={styles.grid}>
@@ -48,7 +53,7 @@ export default function Home() {
           <h2>To Do</h2>
           {/* Tampilkan kartu dengan tipe Todo */}
           {cards.filter(card => card.type === TodoCardType.Todo).map(card => (
-            <TodoCard key={card.id} {...card} onComplete={handleComplete} onInProgress={handleInProgress} onHold={handleHold}/>
+            <TodoCard key={card.id} {...card} onComplete={handleComplete} onInProgress={handleInProgress} onHold={handleHold} onDelete={handleDelete}/>
           ))}
         </div>
         <div className={styles.column}>
@@ -62,7 +67,7 @@ export default function Home() {
           <h2>Completed</h2>
            {/* Tampilkan kartu dengan tipe Completed */}
            {cards.filter(card => card.type === TodoCardType.Completed).map(card => (
-            <TodoCard key={card.id} {...card} />
+            <TodoCard key={card.id} {...card} onDelete={handleDelete}/>
           ))}
         </div>
         <div className={styles.column}>
