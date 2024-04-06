@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import styles from './todocard.module.css'
 import { TodoCardType } from './enum';
 
@@ -21,10 +22,15 @@ const TodoCard = ({ id, activity, deadline, type, onComplete, onInProgress, onHo
           )}
           {/* Tampilkan tombol sesuai dengan tipe kartu */}
           {(type === TodoCardType.Todo || type === TodoCardType.Hold) && (
-            <button className={`${styles.taskCardButton} ${styles.inProgressButton}`} onClick={() => onInProgress(id)}>In Progress</button>
+            <button className={classNames(
+              styles.taskCardButton,
+              styles.inProgressButton)} onClick={() => onInProgress(id)}>In Progress</button>
           )}
           {type === TodoCardType.InProgress && (
-            <button className={`${styles.taskCardButton} ${styles.holdButton}`} onClick={() => onHold(id)}>Hold</button>
+            <button className={classNames(
+              styles.taskCardButton,
+              styles.holdButton
+            )} onClick={() => onHold(id)}>Hold</button>
           )}
         </div>
       </div>
