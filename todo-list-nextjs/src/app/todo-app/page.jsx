@@ -132,7 +132,9 @@ function Dashboard() {
     }
   };
 
-  const handleDelete = async (id) => {};
+  const handleDelete = (id) => {
+    set;
+  };
 
   return (
     <div>
