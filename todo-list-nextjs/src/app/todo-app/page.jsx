@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import styles from "./styles.module.css";
-import InProggressButton from "./inProgressButton/InProgressButton";
-import AddTodoButton from "./addTodoButton/AddTodoButton";
-import CompleteButton from "./completeButton/CompleteButton";
-import HoldButton from "./holdButton/HoldButton";
+import TodoCard from "../../components/todocard/todocard";
+import { TodoCardType } from "../../components/todocard/enum";
+import AddTodoButton from "../../components/addTodo/addTodo";
 
 function Dashboard() {
   const { id } = useParams();
@@ -35,7 +34,7 @@ function Dashboard() {
     fetchTodo();
   }, [id]);
 
-  const handleInprogress = async (todo) => {
+  const handleInprogress = async (id) => {
     try {
       const res = await fetch(`http://localhost:3000/api/`, {
         method: "PUT",
@@ -43,8 +42,8 @@ function Dashboard() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: todo.id,
-          completed: true,
+          id: id,
+          completed: false,
           status: "inprogress",
         }),
       });
@@ -85,7 +84,7 @@ function Dashboard() {
       });
   };
 
-  const handleHold = async (todo) => {
+  const handleHold = async (id) => {
     try {
       const res = await fetch(`http://localhost:3000/api/`, {
         method: "PUT",
@@ -93,8 +92,8 @@ function Dashboard() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: todo.id,
-          completed: true,
+          id: id,
+          completed: false,
           status: "hold",
         }),
       });
@@ -109,7 +108,7 @@ function Dashboard() {
     }
   };
 
-  const handleCompleted = async (todo) => {
+  const handleCompleted = async (id) => {
     try {
       const res = await fetch(`http://localhost:3000/api/`, {
         method: "PUT",
@@ -117,7 +116,7 @@ function Dashboard() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: todo.id,
+          id: id,
           completed: true,
           status: "completed",
         }),
@@ -133,6 +132,8 @@ function Dashboard() {
     }
   };
 
+  const handleDelete = async (id) => {};
+
   return (
     <div>
       <AddTodoButton handleSubmit={handleSubmit} />
@@ -142,94 +143,97 @@ function Dashboard() {
             <label>Todo List</label>
             {todos && todos.length > 0 ? (
               todos
-                .filter((todo) => !todo.completed)
+                .filter(
+                  (todo) => todo.completed === false && todo.status === "new"
+                )
                 .map((todo) => (
-                  <div key={todo.id} className={styles.card}>
-                    <h3 className={styles.titleCard}>{todo.title}</h3>
-                    <p className={styles.statusCard}>{todo.status}</p>
-                    <p className={styles.createAtCard}>{todo.deadline}</p>
-                    <p className={styles.descriptionCard}>{todo.description}</p>
-                    <div className={styles.buttonContainer}>
-                      <InProggressButton
-                        todo={todo}
-                        handleInprogress={handleInprogress}
-                      />
-                    </div>
-                  </div>
+                  <TodoCard
+                    onComplete={handleCompleted}
+                    onInProgress={handleInprogress}
+                    todo={todo}
+                    id={todo.id}
+                    key={todo.id}
+                    {...todo}
+                    type={TodoCardType.Todo}
+                  />
                 ))
             ) : (
               <p>Loading...</p>
             )}
           </article>
         </div>
-        <article>
-          <label>In Progress</label>
-          {todos && todos.length > 0 ? (
-            todos
-              .filter(
-                (todo) =>
-                  todo.completed === true && todo.status === "inprogress"
-              )
-              .map((todo) => (
-                <div key={todo.id} className={styles.card}>
-                  <h3 className={styles.titleCard}>{todo.title}</h3>
-                  <p className={styles.statusCard}>{todo.status}</p>
-                  <p className={styles.createAtCard}>{todo.deadline}</p>
-                  <p className={styles.descriptionCard}>{todo.description}</p>
-                  <div className={styles.buttonContainer}>
-                    <HoldButton todo={todo} handleHold={handleHold} />
-                    <CompleteButton
-                      todo={todo}
-                      handleCompleted={handleCompleted}
-                    />
-                  </div>
-                </div>
-              ))
-          ) : (
-            <p>Loading...</p>
-          )}
-        </article>
-        <article>
-          <label>Completed</label>
-          {todos && todos.length > 0 ? (
-            todos
-              .filter((todo) => todo.completed && todo.status === "completed")
-              .map((todo) => (
-                <div key={todo.id} className={styles.card}>
-                  <h3 className={styles.titleCard}>{todo.title}</h3>
-                  <p className={styles.statusCard}>{todo.status}</p>
-                  <p className={styles.createAtCard}>{todo.deadline}</p>
-                  <p className={styles.descriptionCard}>{todo.description}</p>
-                </div>
-              ))
-          ) : (
-            <p>Loading...</p>
-          )}
-        </article>
-        <article>
-          <label>In Progress</label>
-          {todos && todos.length > 0 ? (
-            todos
-              .filter((todo) => todo.completed && todo.status === "hold")
-              .map((todo) => (
-                <div key={todo.id} className={styles.card}>
-                  <h3 className={styles.titleCard}>{todo.title}</h3>
-                  <p className={styles.statusCard}>{todo.status}</p>
-                  <p className={styles.createAtCard}>{todo.deadline}</p>
-                  <p className={styles.descriptionCard}>{todo.description}</p>
-                  <div className={styles.buttonContainer}>
-                    <InProggressButton
-                      todo={todo}
-                      handleInprogress={handleInprogress}
-                    />
-                    <CompleteButton />
-                  </div>
-                </div>
-              ))
-          ) : (
-            <p>Loading...</p>
-          )}
-        </article>
+        <div className="container">
+          <article>
+            <label>In Progress</label>
+            {todos && todos.length > 0 ? (
+              todos
+                .filter(
+                  (todo) =>
+                    todo.completed === false && todo.status === "inprogress"
+                )
+                .map((todo) => (
+                  <TodoCard
+                    onComplete={handleCompleted}
+                    onHold={handleHold}
+                    todo={todo}
+                    id={todo.id}
+                    key={todo.id}
+                    {...todo}
+                    type={TodoCardType.InProgress}
+                  />
+                ))
+            ) : (
+              <p>Loading...</p>
+            )}
+          </article>
+        </div>
+        <div className="container">
+          <article>
+            <label>Complete</label>
+            {todos && todos.length > 0 ? (
+              todos
+                .filter(
+                  (todo) =>
+                    todo.completed === true && todo.status === "completed"
+                )
+                .map((todo) => (
+                  <TodoCard
+                    todo={todo}
+                    id={todo.id}
+                    key={todo.id}
+                    {...todo}
+                    type={TodoCardType.Completed}
+                  />
+                ))
+            ) : (
+              <p>Loading...</p>
+            )}
+          </article>
+        </div>
+        <div className="container">
+          <article>
+            <label>Hold</label>
+            {todos && todos.length > 0 ? (
+              todos
+                .filter(
+                  (todo) => todo.completed === false && todo.status === "hold"
+                )
+                .map((todo) => (
+                  <TodoCard
+                    onComplete={handleCompleted}
+                    onInProgress={handleInprogress}
+                    todo={todo}
+                    id={todo.id}
+                    key={todo.id}
+                    {...todo}
+                    type={TodoCardType.Hold}
+                  />
+                ))
+            ) : (
+              <p>Loading...</p>
+            )}
+          </article>
+        </div>
       </section>
     </div>
   );

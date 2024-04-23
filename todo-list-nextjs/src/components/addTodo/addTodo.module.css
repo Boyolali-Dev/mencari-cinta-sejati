@@ -1,0 +1,138 @@
+.button {
+    background-color: #ffffff;
+    background-position: 0% 0%;
+    cursor: pointer;
+    height: 33px;
+    line-height: 33px;
+    margin: 0;
+    padding: 0 0 10px 0;
+    display: inline-block;
+    transform: none;
+    transition: opacity 0.2 ease-in-out 0s;
+    outline:  rgb(220, 76, 62) none 0px;
+    box-sizing: border-box;
+    text-align: left;
+    white-space: nowrap;
+    font-size: 16px;
+    word-spacing: 0px;
+    border: none;
+}
+
+.containerButton {
+    margin-top: 10px;
+    margin-left: auto;
+    align-items: end;
+    display: flex;
+    justify-content: end;
+}
+
+.addButton {
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+
+.cancelButton {
+    margin:4px;
+    padding:4px 8px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    background-color: #D31C1C;
+    color: #ffffff;
+} 
+
+.cancelButton:hover {
+    background-color: rgb(161, 4, 4);
+}
+    
+.submitButton {
+    margin:4px;
+    padding:4px 8px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    background-color: #1CD3C7;
+    color: #ffffff;
+}
+
+.submitButton:hover {
+    background-color: rgb(0, 131, 122);
+}
+
+.button:hover {
+    opacity: 0.8;
+    color: #DC4C3E;
+}
+
+.input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 4rem 0;
+    width: 50%;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4px;
+}
+
+.inputTitle {
+    margin:4px;
+    width: 100%;
+    padding:4px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+}
+
+.inputTitle:hover {
+    outline-offset: initial;
+    outline: dashed;
+    outline-color: #DC4C3E;
+}
+
+.inputDescription {
+    margin:4px;
+    padding:4px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+}
+
+.inputDescription:hover {
+    outline-offset: initial;
+    outline: dashed;
+    outline-color: #DC4C3E;
+}
+
+.inputLabel {
+    margin:4px;
+    padding:4px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+}
+
+.inputDate {
+    margin:4px;
+    padding:4px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+}
