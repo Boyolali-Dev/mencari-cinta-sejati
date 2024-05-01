@@ -87,7 +87,6 @@ function AddTodoButton({ handleSubmit }) {
         <button
           className={styles.button}
           title="Add Todo"
-          aria-placeholder="Add Todo"
           type="button"
           onClick={handleShowInput}
         >

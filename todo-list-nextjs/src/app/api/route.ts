@@ -1,34 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const todos = [
-  {
-    id: 1,
-    title: "Todo 1",
-    createAt: "2024-03-29 23:39",
-    deadline: "2024-03-29 23:39",
-    description: "Todo 1 description",
-    completed: false,
-    status: "new"
-  },
-  {
-    id: 2,
-    title: "Todo 2",
-    createAt: "2024-03-29 23:39",
-    deadline: "2024-03-29 23:39",
-    description: "Todo 2 description",
-    completed: false,
-    status: "new"
-  },
-  {
-    id: 3,
-    title: "Todo 3",
-    createAt: "2024-03-29 23:39",
-    deadline: "2024-03-29 23:39",
-    description: "Todo 3 description",
-    completed: false,
-    status: "new"
-  },
-];
+import todos from "./constants";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -77,11 +48,12 @@ export async function POST(request: NextRequest) {
     completed: false,
     status: status,
   };
+  const newTodos = [...todos, NewTodo];
   if(!NewTodo.title) {
     return NextResponse.json({ status: 400, message: "Bad Request" });
   }
   todos.push(NewTodo)
-  return NextResponse.json({ status: 200, message: "Success", todos: todos });
+  return NextResponse.json({ status: 200, message: "Success", todos: newTodos });
 }
 
 export async function PUT(request: NextRequest) {
@@ -89,9 +61,10 @@ export async function PUT(request: NextRequest) {
   const { id, completed, status } = res;
 
   const todo = todos.find((item) => item.id == Number(id));
+  const currentTodo = [...todos]
   if (todo) {
     todo.completed = completed;
     todo.status = status
   }
-  return NextResponse.json({ status: 200, message: "Success", todos: todos });
+  return NextResponse.json({ status: 200, message: "Success", todos: currentTodo });
 }

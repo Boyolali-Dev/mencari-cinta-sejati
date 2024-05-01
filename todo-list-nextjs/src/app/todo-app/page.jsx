@@ -10,8 +10,8 @@ import AddTodoButton from "../../components/addTodo/addTodo";
 function Dashboard() {
   const { id } = useParams();
   const [todos, setTodos] = useState(() => {
-    const localData = localStorage.getItem("todos");
-    return localData ? JSON.parse(localData) : [];
+    const storedTodos = localStorage.getItem("todos");
+    return storedTodos ? JSON.parse(storedTodos) : [];
   });
 
   useEffect(() => {
@@ -133,7 +133,7 @@ function Dashboard() {
   };
 
   const handleDelete = (id) => {
-    set;
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -150,6 +150,7 @@ function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
+                    onDelete={handleDelete}
                     onComplete={handleCompleted}
                     onInProgress={handleInprogress}
                     todo={todo}
@@ -177,6 +178,7 @@ function Dashboard() {
                   <TodoCard
                     onComplete={handleCompleted}
                     onHold={handleHold}
+                    onDelete={handleDelete}
                     todo={todo}
                     id={todo.id}
                     key={todo.id}
@@ -222,6 +224,7 @@ function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
+                    onDelete={handleDelete}
                     onComplete={handleCompleted}
                     onInProgress={handleInprogress}
                     todo={todo}
