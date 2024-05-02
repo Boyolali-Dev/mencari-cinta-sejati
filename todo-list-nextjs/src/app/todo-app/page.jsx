@@ -9,10 +9,7 @@ import AddTodoButton from "../../components/addTodo/addTodo";
 
 function Dashboard() {
   const { id } = useParams();
-  const [todos, setTodos] = useState(() => {
-    const storedTodos = localStorage.getItem("todos");
-    return storedTodos ? JSON.parse(storedTodos) : [];
-  });
+  const [todos, setTodos] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));

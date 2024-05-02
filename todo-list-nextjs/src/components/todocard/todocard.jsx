@@ -6,6 +6,7 @@ import { TodoCardType } from "./enum";
 
 const TodoCard = ({
   id,
+  title,
   description,
   deadline,
   type,
@@ -25,7 +26,7 @@ const TodoCard = ({
         )}
       </div>
       <div className={styles.taskCardContent}>
-        <h3>Activity:</h3>
+        <h3>Activity: {title}</h3>
         <p>{description}</p>
       </div>
       <div className={styles.taskCardButtonContainer}>

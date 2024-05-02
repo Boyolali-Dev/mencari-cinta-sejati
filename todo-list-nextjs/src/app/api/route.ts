@@ -39,6 +39,11 @@ export async function POST(request: NextRequest) {
     })
   }
   
+  if(!title) {
+    {
+      return NextResponse.json({ status: 400, message: "Bad Request" });
+    }
+  }
   const NewTodo = {
     id: todos.length + 1,
     title: title,
@@ -49,9 +54,6 @@ export async function POST(request: NextRequest) {
     status: status,
   };
   const newTodos = [...todos, NewTodo];
-  if(!NewTodo.title) {
-    return NextResponse.json({ status: 400, message: "Bad Request" });
-  }
   todos.push(NewTodo)
   return NextResponse.json({ status: 200, message: "Success", todos: newTodos });
 }
