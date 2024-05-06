@@ -1,0 +1,47 @@
+.todoList {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 16px 8px;
+}
+
+.card {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--on-background);
+    border-top: 5px solid;
+    margin-bottom: 16px;
+};
+
+.statusCard {
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin: 4px 0;
+}
+
+.titleCard {
+    margin: 4px 0;
+}
+
+.createAtCard {
+    color: var(--on-background);
+    font-size: 12px;
+    margin:4px 0;
+    font-style: italic;
+}
+
+.descriptionCard {
+    margin-top: 5px
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 10px;
+}
+
