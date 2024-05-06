@@ -54,7 +54,6 @@ export async function POST(request: NextRequest) {
     status: status,
   };
   const newTodos = [...todos, NewTodo];
-  todos.push(NewTodo)
   return NextResponse.json({ status: 200, message: "Success", todos: newTodos });
 }
 
@@ -69,4 +68,14 @@ export async function PUT(request: NextRequest) {
     todo.status = status
   }
   return NextResponse.json({ status: 200, message: "Success", todos: currentTodo });
+}
+
+export async function DELETE(request: NextRequest) {
+  const res = await request.json();
+  const { id } = res;
+  const todo = todos.find((item) => item.id == Number(id));
+  if (todo) {
+    todos.splice(todos.indexOf(todo), 1);
+  }
+  return NextResponse.json({ status: 200, message: "Success", todos: todos });
 }
