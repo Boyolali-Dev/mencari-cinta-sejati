@@ -24,7 +24,9 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/api/route.js"
+    "src/app/api/route.js",
+    "src/components/Navbar/page.jsx",
+    "src/app/page.js"
   ],
   "exclude": ["node_modules"]
 }

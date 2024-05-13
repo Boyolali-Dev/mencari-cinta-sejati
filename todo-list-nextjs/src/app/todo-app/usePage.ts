@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 
 export const usePage = () => {
   const { id } = useParams();
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<any[]>([]);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -42,7 +42,7 @@ export const usePage = () => {
     setTodos(updatedTodo.todos);
   };
 
-  const handleSubmit = async (title, description, deadline, onSuccess) => {
+  const customHandleSubmit = async (title, description, deadline, onSuccess) => {
     const newTodo = {
       title: title,
       description: description,
@@ -62,7 +62,10 @@ export const usePage = () => {
     }
     const updateTodo = await res.json();
     setTodos(updateTodo.todos);
-    onSuccess();
+
+    if ( typeof onSuccess === "function") {
+      onSuccess();
+    }
   };
 
   const handleHold = async (id) => {
@@ -123,7 +126,7 @@ export const usePage = () => {
   return {
     todos,
     handleInprogress,
-    handleSubmit,
+    customHandleSubmit,
     handleHold,
     handleCompleted,
     handleDelete,
