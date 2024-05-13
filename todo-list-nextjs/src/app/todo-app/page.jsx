@@ -3,7 +3,7 @@
 import { usePage } from "./usePage";
 import styles from "./styles.module.css";
 import TodoCard from "../../components/todocard/todocard";
-import { TodoCardType } from "../../components/todocard/enum";
+import TodoCardType from "../../components/todocard/enum";
 import AddTodoButton from "../../components/addTodo/addTodo";
 
 function Dashboard() {
