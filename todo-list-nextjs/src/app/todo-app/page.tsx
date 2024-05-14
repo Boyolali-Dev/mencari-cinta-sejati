@@ -3,22 +3,21 @@
 import { usePage } from "./usePage";
 import styles from "./styles.module.css";
 import TodoCard from "../../components/todocard/todocard";
-import {TodoCardType} from "../../components/todocard/enum";
-import AddTodoButton from "../../components/addTodo/addTodo";
-
-function Dashboard() {
+import { TodoCardType } from "../../components/todocard/enum";
+import AddTodoButton from "../../components/addTodo/addTodoButton";
+export default function Dashboard() {
   const {
     handleCompleted,
     handleDelete,
     handleHold,
     handleInprogress,
-    handleSubmit,
+    customHandleSubmit,
     todos,
   } = usePage();
 
   return (
     <div>
-      <AddTodoButton handleSubmit={handleSubmit} />
+      <AddTodoButton customHandleSubmit={customHandleSubmit} />
       <section className={styles.todoList}>
         <div className="container">
           <article>
@@ -124,5 +123,3 @@ function Dashboard() {
     </div>
   );
 }
-
-export default Dashboard;
