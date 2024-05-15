@@ -9,17 +9,17 @@ const Navbar: React.FC = () => {
         <div className={styles.flex}>
           <div className={styles.hidden}>
             <div className={styles.flexSpace}>
-              <Link href="/" passHref>
-                <a className={styles.buttonNavbar}>Home</a>
+              <Link href="/" passHref className={styles.buttonNavbar}>
+                Home
               </Link>
-              <Link href="/dashboard" passHref>
-                <a className={styles.buttonNavbar}>Dashboard</a>
+              <Link href="/dashboard" passHref className={styles.buttonNavbar}>
+                Dashboard
               </Link>
-              <Link href="/team" passHref>
-                <a className={styles.buttonNavbar}>Teams</a>
+              <Link href="/team" passHref className={styles.buttonNavbar}>
+                Teams
               </Link>
-              <Link href="/todo-app" passHref>
-                <a className={styles.buttonNavbar}>Todo-App</a>
+              <Link href="/todo-app" passHref className={styles.buttonNavbar}>
+                Todo-App
               </Link>
             </div>
           </div>

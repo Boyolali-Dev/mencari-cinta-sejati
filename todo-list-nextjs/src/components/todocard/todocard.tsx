@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames'
 import styles from './todocard.module.css'
-import TodoCardType  from './enum';
+import {TodoCardType}  from './enum';
 
 interface TodoCardProps {
   id: number;
