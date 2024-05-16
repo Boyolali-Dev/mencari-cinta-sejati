@@ -1,18 +1,22 @@
 import styles from "./addTodo.module.css";
 import { LuPlusCircle } from "react-icons/lu";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
-function AddTodoButton({ handleSubmit }) {
-  const [showInput, setShowInput] = useState(false);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [deadline, setDeadline] = useState("");
+interface AddTodoButtonProps {
+  handleSubmit: (title: string, description: string, deadline: string, callback: () => void) => void;
+}
 
-  const onTitleChangeHandler = (event) => {
+function AddTodoButton({ handleSubmit } : AddTodoButtonProps): React.ReactNode {
+  const [showInput, setShowInput] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [deadline, setDeadline] = useState<string>("");
+
+  const onTitleChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
 
-  const onDescriptionChangeHandler = (event) => {
+  const onDescriptionChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setDescription(event.target.value);
   };
 
@@ -27,7 +31,7 @@ function AddTodoButton({ handleSubmit }) {
     setDeadline("");
   };
 
-  const handleDateChange = (event) => {
+  const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
     setDeadline(event.target.value);
   };
 
@@ -43,7 +47,7 @@ function AddTodoButton({ handleSubmit }) {
             onChange={onTitleChangeHandler}
             value={title}
             required
-          ></input>
+          />
           <input
             className={styles.inputDescription}
             type="text"
@@ -52,7 +56,7 @@ function AddTodoButton({ handleSubmit }) {
             onChange={onDescriptionChangeHandler}
             value={description}
             required
-          ></input>
+          />
           <label className={styles.inputLabel}>Deadline</label>
           <input
             className={styles.inputDate}
@@ -61,7 +65,7 @@ function AddTodoButton({ handleSubmit }) {
             value={deadline}
             onChange={handleDateChange}
             required
-          ></input>
+          />
           <div className={styles.containerButton}>
             <button
               className={styles.cancelButton}
