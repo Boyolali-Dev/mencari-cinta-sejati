@@ -1,85 +1,34 @@
 "use client";
 
 import styles from "./addTodo.module.css";
+import { useAddTodoButton } from "./useAddTodoButton";
 import { LuPlusCircle } from "react-icons/lu";
-import { useState } from "react";
-import { useForm, Resolver } from "react-hook-form";
-
-type TodoFormValues = {
-  title: string;
-  description: string;
-  deadline: string;
-};
-
-const resolver: Resolver<TodoFormValues> = async (values) => {
-  return {
-    values: values.title ? values : {},
-    errors: !values.title
-      ? {
-          title: {
-            type: "required",
-            message: "This is required.",
-          },
-        }
-      : !values.description
-      ? {
-          description: {
-            type: "required",
-            message: "This is required.",
-          },
-        }
-      : !values.deadline
-      ? {
-          deadline: {
-            type: "required",
-            message: "This is required.",
-          },
-        }
-      : {},
-  };
-};
-
-export default function AddTodoButton({ customHandleSubmit }) {
+import { addTodo } from "../../lib/firebase/setting";
+export default function AddTodoButton({
+  customHandleSubmit,
+}: {
+  customHandleSubmit: (
+    title: string,
+    description: string,
+    deadline: string,
+    onSuccess: () => void
+  ) => void;
+}) {
   const {
+    showForm,
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TodoFormValues>({ resolver });
-  const [showForm, setShowForm] = useState(false);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [deadline, setDeadline] = useState("");
-
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
-  const handleShowInput = () => {
-    setShowForm(true);
-  };
-
-  const handleHideInput = () => {
-    setShowForm(false);
-    setTitle("");
-    setDescription("");
-    setDeadline("");
-  };
-
-  const handleDateChange = (event) => {
-    setDeadline(event.target.value);
-  };
-
-  const onSubmit = (todos) => {
-    customHandleSubmit(title, description, deadline);
-    console.log(todos);
-    handleHideInput();
-  };
+    handleTitleChange,
+    handleDescriptionChange,
+    handleShowInput,
+    handleHideInput,
+    handleDateChange,
+    onNewSubmit,
+  } = useAddTodoButton(customHandleSubmit);
 
   return (
-    <form onSubmit={onSubmit}>
+    <form>
       <div className={styles.input}>
         {showForm ? (
           <div className={styles.container}>
@@ -88,7 +37,7 @@ export default function AddTodoButton({ customHandleSubmit }) {
               type="text"
               placeholder="Todo title"
               {...register("title", { required: true })}
-              onChange={handleTitleChange}
+              // onChange={handleTitleChange}
               required
             />
             {errors?.title && <p>{errors?.title?.message}</p>}
@@ -121,7 +70,7 @@ export default function AddTodoButton({ customHandleSubmit }) {
                 className={styles.submitButton}
                 type="button"
                 title="Submit"
-                onClick={handleSubmit(onSubmit)}
+                onClick={onNewSubmit}
               >
                 Add Todo
               </button>
