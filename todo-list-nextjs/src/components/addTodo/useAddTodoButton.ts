@@ -43,16 +43,13 @@ type TodoFormValues = {
       reset,
     } = useForm<TodoFormValues>({ resolver });
     const [showForm, setShowForm] = useState(false);
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [deadline, setDeadline] = useState("");
-  
+      
     const handleTitleChange = (event) => {
-      setTitle(event.target.value);
+      setShowForm(event.target.value);
     };
   
     const handleDescriptionChange = (event) => {
-      setDescription(event.target.value);
+      setShowForm(event.target.value);
     };
     const handleShowInput = () => {
       setShowForm(true);
@@ -64,21 +61,20 @@ type TodoFormValues = {
     };
   
     const handleDateChange = (event) => {
-      setDeadline(event.target.value);
+      setShowForm(event.target.value);
     };
+
     const onNewSubmit = async () => {
       handleSubmit(data => {
         console.log(data)
         customHandleSubmit(data.title, data.description, data.deadline, handleHideInput)
+        window.alert("Todo added successfully!")
       })()
     }
 
     return{
         onNewSubmit,
         showForm,
-        title,
-        description,
-        deadline,
         register,
         handleSubmit,
         formState: { errors },
@@ -87,6 +83,5 @@ type TodoFormValues = {
         handleShowInput,
         handleHideInput,
         handleDateChange,
-        // onSubmit
     }
 }

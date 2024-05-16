@@ -74,6 +74,11 @@ export const usePage = () => {
     removeTodo({
       id
     })
+    const confirmed = window.confirm("Are you sure you want to delete this todo?");
+    if(confirmed) {
+      window.alert("Todo deleted successfully")
+      fetchTodo()
+    }
     fetchTodo()
   };
 

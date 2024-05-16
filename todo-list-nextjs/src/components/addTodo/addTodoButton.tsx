@@ -37,7 +37,6 @@ export default function AddTodoButton({
               type="text"
               placeholder="Todo title"
               {...register("title", { required: true })}
-              // onChange={handleTitleChange}
               required
             />
             {errors?.title && <p>{errors?.title?.message}</p>}
