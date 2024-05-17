@@ -4,8 +4,9 @@ import { usePage } from "./usePage";
 import React from "react";
 import styles from "./styles.module.css";
 import TodoCard from "../../components/todocard/todocard";
-import { TodoCardType } from "../../components/todocard/enum";
+import { TodoCardStatus } from "../../models/todoCardStatus";
 import AddTodoButton from "../../components/addTodo/addTodoButton";
+import Loader from "../../components/Loader/Loader";
 export default function Dashboard() {
   const {
     handleCompleted,
@@ -14,10 +15,12 @@ export default function Dashboard() {
     handleInprogress,
     customHandleSubmit,
     todos,
+    isLoading,
   } = usePage();
 
   return (
     <div>
+      {isLoading && <Loader />}
       <AddTodoButton customHandleSubmit={customHandleSubmit} />
       <section className={styles.todoList}>
         <div className="container">
@@ -30,14 +33,13 @@ export default function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
-                    onDelete={handleDelete}
                     onComplete={handleCompleted}
+                    onHold={handleHold}
+                    onDelete={handleDelete}
                     onInProgress={handleInprogress}
-                    todo={todo}
-                    id={todo.id}
                     key={todo.id}
                     {...todo}
-                    type={TodoCardType.Todo}
+                    type={TodoCardStatus.Todo}
                   />
                 ))
             ) : (
@@ -59,11 +61,10 @@ export default function Dashboard() {
                     onComplete={handleCompleted}
                     onHold={handleHold}
                     onDelete={handleDelete}
-                    todo={todo}
-                    id={todo.id}
+                    onInProgress={handleInprogress}
                     key={todo.id}
                     {...todo}
-                    type={TodoCardType.InProgress}
+                    type={TodoCardStatus.InProgress}
                   />
                 ))
             ) : (
@@ -82,12 +83,13 @@ export default function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
+                    onComplete={handleCompleted}
+                    onHold={handleHold}
                     onDelete={handleDelete}
-                    todo={todo}
-                    id={todo.id}
+                    onInProgress={handleInprogress}
                     key={todo.id}
                     {...todo}
-                    type={TodoCardType.Completed}
+                    type={TodoCardStatus.Completed}
                   />
                 ))
             ) : (
@@ -105,14 +107,13 @@ export default function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
-                    onDelete={handleDelete}
                     onComplete={handleCompleted}
+                    onHold={handleHold}
+                    onDelete={handleDelete}
                     onInProgress={handleInprogress}
-                    todo={todo}
-                    id={todo.id}
                     key={todo.id}
                     {...todo}
-                    type={TodoCardType.Hold}
+                    type={TodoCardStatus.Hold}
                   />
                 ))
             ) : (

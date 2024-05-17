@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "../../../lib/firebase/firestore";
 import { ref, get } from "firebase/database";
-import { convertObjectToArray } from "../../utils/convertArray"
+import { convertObjectToArray } from "../../../utils/convertArray";
 
 export async function GET(request: NextRequest) {
   try {
-    const todosRef = ref(db, 'todos');
+    const todosRef = ref(db, "todos");
     const snapshot = await get(todosRef);
     if (!snapshot.exists()) {
       return NextResponse.json({
         status: 404,
         message: "Not Found",
-        todos: []
+        todos: [],
       });
     }
     const data = snapshot.val();
