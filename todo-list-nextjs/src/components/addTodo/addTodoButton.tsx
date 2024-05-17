@@ -4,6 +4,7 @@ import styles from "./addTodo.module.css";
 import { useAddTodoButton } from "./useAddTodoButton";
 import { LuPlusCircle } from "react-icons/lu";
 import { addTodo } from "../../lib/firebase/setting";
+import React from "react";
 export default function AddTodoButton({
   customHandleSubmit,
 }: {
@@ -17,13 +18,10 @@ export default function AddTodoButton({
   const {
     showForm,
     register,
-    handleSubmit,
     formState: { errors },
-    handleTitleChange,
     handleDescriptionChange,
     handleShowInput,
     handleHideInput,
-    handleDateChange,
     onNewSubmit,
   } = useAddTodoButton(customHandleSubmit);
 
@@ -53,7 +51,6 @@ export default function AddTodoButton({
               className={styles.inputDate}
               type="date"
               {...register("deadline", { required: true })}
-              onChange={handleDateChange}
               required
             />
             <div className={styles.containerButton}>

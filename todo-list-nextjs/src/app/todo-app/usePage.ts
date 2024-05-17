@@ -21,14 +21,6 @@ export const usePage = () => {
     fetchTodo();
   }, []);
 
-  useEffect(() => {
-    const getTodos = async () => {
-      const fetchedTodosDb = await fetchTodosDb()
-      setTodos(Object.values(fetchedTodosDb))
-    }
-    getTodos()
-  }, [])
-
   const handleInprogress = async (id) => {
     updateTodo({
       id,
@@ -65,16 +57,16 @@ export const usePage = () => {
     })
     fetchTodo()
   };
-
   const handleDelete = async (id) => {
-    removeTodo({
-      id
-    })
+
     const confirmed = window.confirm("Are you sure you want to delete this todo?");
     if(confirmed) {
       window.alert("Todo deleted successfully")
+      removeTodo({
+        id
+      })
+      fetchTodo()
     }
-    fetchTodo()
   };
 
   return {

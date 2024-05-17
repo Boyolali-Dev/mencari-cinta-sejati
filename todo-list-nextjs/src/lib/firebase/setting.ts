@@ -12,8 +12,8 @@ export const updateTodo = (todo) => {
     return update(todoRef, todo);
 }
 
-export const removeTodo = (todo) => {
-    const todoRef = ref(db, 'todos/' + todo.id);
+export const removeTodo = (id) => {
+    const todoRef = ref(db, 'todos/' + id);
     return set(todoRef, null);
 }
 
