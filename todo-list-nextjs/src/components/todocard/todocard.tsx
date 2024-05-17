@@ -1,19 +1,15 @@
 import classNames from "classnames";
 import React from "react";
 import styles from "./todocard.module.css";
-import { TodoCardType } from "./enum";
+import { TodoCardStatus } from "../../models/todoCardStatus";
+import { Todo } from "../../models/todo";
 
-interface TodoCardProps {
-  id: number;
-  title: string;
-  description: string;
-  deadline: string;
-  type: TodoCardType;
+type TodoCardProps = {
   onComplete: (id: number) => void;
   onInProgress: (id: number) => void;
   onHold: (id: number) => void;
   onDelete: (id: number) => void;
-}
+} & Todo;
 
 const TodoCard: React.FC<TodoCardProps> = ({
   id,
@@ -29,7 +25,8 @@ const TodoCard: React.FC<TodoCardProps> = ({
   return (
     <div className={styles.taskCard}>
       <div className={styles.taskCardButtonContainer}>
-        {(type === TodoCardType.Todo || type === TodoCardType.Completed) && (
+        {(type === TodoCardStatus.Todo ||
+          type === TodoCardStatus.Completed) && (
           <button className={styles.cancelButton} onClick={() => onDelete(id)}>
             X
           </button>
@@ -42,7 +39,7 @@ const TodoCard: React.FC<TodoCardProps> = ({
       <div className={styles.taskCardButtonContainer}>
         <p>Deadline: {deadline}</p>
 
-        {type !== TodoCardType.Completed && (
+        {type !== TodoCardStatus.Completed && (
           <button
             className={styles.taskCardButton}
             onClick={() => onComplete(id)}
@@ -51,7 +48,7 @@ const TodoCard: React.FC<TodoCardProps> = ({
           </button>
         )}
 
-        {(type === TodoCardType.Todo || type === TodoCardType.Hold) && (
+        {(type === TodoCardStatus.Todo || type === TodoCardStatus.Hold) && (
           <button
             className={classNames(
               styles.taskCardButton,
@@ -63,7 +60,7 @@ const TodoCard: React.FC<TodoCardProps> = ({
           </button>
         )}
 
-        {type === TodoCardType.InProgress && (
+        {type === TodoCardStatus.InProgress && (
           <button
             className={classNames(styles.taskCardButton, styles.holdButton)}
             onClick={() => onHold(id)}
