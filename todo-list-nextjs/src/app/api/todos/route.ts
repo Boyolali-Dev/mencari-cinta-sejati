@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "../../../lib/firebase/firestore";
 import { ref, get } from "firebase/database";
-
-const convertObjectToArray = (object: { [key: string]: any}): any[] => {
-  return Object.values(object);
-};
+import { convertObjectToArray } from "../../utils/convertArray/utils"
 
 export async function GET(request: NextRequest) {
   try {

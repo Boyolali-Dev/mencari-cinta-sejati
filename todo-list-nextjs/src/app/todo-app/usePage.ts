@@ -6,10 +6,6 @@ export const usePage = () => {
   useParams();
   const [todos, setTodos] = useState<any[]>([]);
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
   async function fetchTodo() {
     const res = await fetch(`http://localhost:3000/api/todos`);
     if (!res.ok) {
@@ -48,8 +44,8 @@ export const usePage = () => {
     })
     if ( typeof onSuccess === "function") {
       onSuccess();
+      fetchTodo()
     }
-    fetchTodo()
   };
 
   const handleHold = async (id) => {
@@ -77,7 +73,6 @@ export const usePage = () => {
     const confirmed = window.confirm("Are you sure you want to delete this todo?");
     if(confirmed) {
       window.alert("Todo deleted successfully")
-      fetchTodo()
     }
     fetchTodo()
   };
