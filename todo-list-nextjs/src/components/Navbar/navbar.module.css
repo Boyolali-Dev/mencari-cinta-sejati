@@ -16,18 +16,19 @@
 
 .flex {
     display: flex;
-    font-size: 16px;
+    /* font-size: 16px; */
     align-items: center;
-    justify-content: center;
-    align-items: stretch;
     justify-content: start;
+    width: 100%;
+    /* align-items: stretch;
+    justify-content: start; */
 }
 
 .hidden {
     display: inline;
     gap: 8px;
     align-items: center;
-    float: left
+    /* float: left */
 }
 
 .flexSpace {
@@ -54,4 +55,43 @@
     background-color: #111;
     color: white;
     border-radius: 6px
+}
+
+/* garis untuk navbar */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+
+}
+
+.hamburgerLine {
+    height: 2px;
+    background: white;
+    margin: 3px;
+    width: 25px;
+}
+
+.showMenu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .hidden {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .showMenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }

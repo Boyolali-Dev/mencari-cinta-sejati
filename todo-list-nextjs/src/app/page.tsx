@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <main className={styles.main}>
         <Link href="/todo-app">
-          <h1>Hello Gaes</h1>
+          <h1>Welcome to To Do App Web</h1>
         </Link>
       </main>
     </>
