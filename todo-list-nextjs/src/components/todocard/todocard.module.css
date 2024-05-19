@@ -1,6 +1,6 @@
 .taskCard {
     background-color: #FAEF5D;
-    color: 1D2B53;
+    color: #1D2B53;
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 10px;
@@ -78,4 +78,31 @@
   font-size: 18px;
   cursor: pointer;
   margin-left: auto;
+}
+
+@media (max-width: 700px) {
+  .taskCardButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+  }
+  
+  .taskCardButtonContainer p {
+    font-weight: 500;
+    color: #FF004D;
+    display: inline;
+    flex-direction: column;
+  }
+ 
+  .taskCard {
+    background-color: #FAEF5D;
+    color: #1D2B53;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 8px;
+    width: 100%;
+  } 
+
 }

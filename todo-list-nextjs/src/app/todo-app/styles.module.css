@@ -45,3 +45,10 @@
     gap: 10px;
 }
 
+@media (max-width:700px) {
+    .todoList {
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+    }   
+}
