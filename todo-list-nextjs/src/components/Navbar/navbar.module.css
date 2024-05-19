@@ -1,41 +1,41 @@
 .navbar {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: rgb(31 41 55);
-    display: inline-block;
+    display: flex;
     width: 100%;
-    height: 3rem;
-    padding: 10px
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .container {
     width: 100%;
     max-width: 72rem;
     margin: 0 auto;
-    shape-margin: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .flex {
     display: flex;
-    /* font-size: 16px; */
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     width: 100%;
-    /* align-items: stretch;
-    justify-content: start; */
 }
 
 .hidden {
-    display: inline;
+    display: flex;
     gap: 8px;
     align-items: center;
-    /* float: left */
 }
 
 .flexSpace {
     list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
 }
 
 .buttonNavbar {
@@ -46,7 +46,6 @@
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
-    float: left;
     transition: background-color 0.3s ease;
     border-radius: 6px;
 }
@@ -61,8 +60,8 @@
 .hamburger {
     display: none;
     flex-direction: column;
+    align-items: center;
     cursor: pointer;
-
 }
 
 .hamburgerLine {
@@ -93,5 +92,24 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+    }
+
+    .container{
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .flexSpace {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttonNavbar {
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
     }
 }
