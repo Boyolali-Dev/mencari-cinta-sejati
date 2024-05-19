@@ -1,3 +1,4 @@
+import { Flavors } from "next/font/google";
 import { useState } from "react";
 import { useForm, Resolver } from "react-hook-form";
 
@@ -43,7 +44,7 @@ type TodoFormValues = {
       reset,
     } = useForm<TodoFormValues>({ resolver });
     const [showForm, setShowForm] = useState(false);
-      
+
     const handleTitleChange = (event) => {
       setShowForm(event.target.value);
     };
@@ -56,7 +57,7 @@ type TodoFormValues = {
       setShowForm(true);
     };
   
-    const handleHideInput = () => {
+    const handleHideInput = async () => {
       setShowForm(false);
       reset();
     };

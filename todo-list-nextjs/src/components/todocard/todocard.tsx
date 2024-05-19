@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./todocard.module.css";
 import { TodoCardStatus } from "../../models/todoCardStatus";
 import { Todo } from "../../models/todo";
+import DeleteModal from "../modal/deleteModal";
 
 type TodoCardProps = {
   onComplete: (id: number) => void;

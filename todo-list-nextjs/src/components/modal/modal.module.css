@@ -1,0 +1,84 @@
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.section {
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    width: 300px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalContent, .modalBody, .modalFooter {
+    margin-bottom: 10px;
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closeButton, .saveButton {
+    padding: 10px 20px;
+    margin: 5px;
+    border: space;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.closeButton {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.saveButton {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.deleteButton {
+    background-color: #f44336;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .modalContent {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        padding: 10px;
+    }
+
+    .modalFooter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .closeBtn, .saveBtn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
