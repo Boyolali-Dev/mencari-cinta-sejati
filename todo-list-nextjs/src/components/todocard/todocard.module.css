@@ -1,6 +1,6 @@
 .taskCard {
-    background-color: #95f5f5ea;
-    color: #000000;
+    background-color: #FAEF5D;
+    color: 1D2B53;
     border-radius: 8px;
     padding: 12px;
     margin-bottom: 10px;
@@ -8,11 +8,11 @@
 }
   
 .taskCard h3 {
-   color: #000000;
+   color: #7E2553;
 }
   
 .taskCard p {
-  color: #000000;
+  color: #1D2B53;
 }
 
 .taskCardContent {
@@ -32,7 +32,7 @@
 
 .taskCardButtonContainer p {
   font-weight: 500;
-  color: red;
+  color: #FF004D;
 }
 
 .taskCardButton {
@@ -60,8 +60,8 @@
 
 .holdButton {
   background-color: rgb(255, 17, 0);
-  color: #000000;
-  border: 2px solid #000000;
+  color: #ffff;
+  border: 2px solid #ffff;
 }
 
 .taskCardHeader {
