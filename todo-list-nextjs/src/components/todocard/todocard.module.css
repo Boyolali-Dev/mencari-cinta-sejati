@@ -92,7 +92,7 @@
   .taskCardButtonContainer p {
     font-weight: 500;
     color: #FF004D;
-    display: inline;
+    display: flex;
     flex-direction: column;
   }
  
