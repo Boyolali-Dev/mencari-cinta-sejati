@@ -43,7 +43,7 @@ export default function AddTodoButton({
             <input
               className={styles.inputTitle}
               type="text"
-              placeholder="Todo title"
+              placeholder="Title"
               {...register("title", { required: true })}
               required
             />
@@ -51,7 +51,7 @@ export default function AddTodoButton({
             <input
               className={styles.inputDescription}
               type="text"
-              placeholder="Deskripsi"
+              placeholder="Description"
               {...register("description", { required: true })}
               onChange={handleDescriptionChange}
               required
@@ -89,7 +89,7 @@ export default function AddTodoButton({
             type="button"
             onClick={handleShowInput}
           >
-            <LuPlusCircle className={styles.buttonAdd} /> Add Task
+            <LuPlusCircle className={styles.buttonAdd} /> ADD TASK
           </button>
         )}
       </div>

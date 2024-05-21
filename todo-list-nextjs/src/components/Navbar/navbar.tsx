@@ -13,7 +13,6 @@ const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        {/* <div className={styles.flex}> */}
           <div className={styles.hamburger} onClick={toggleMenu}>
             <div className={styles.hamburgerLine}></div>
             <div className={styles.hamburgerLine}></div>
@@ -35,7 +34,6 @@ const Navbar: React.FC = () => {
               </Link>
             </div>
           </div>
-        {/* </div> */}
       </div>
     </nav>
   );

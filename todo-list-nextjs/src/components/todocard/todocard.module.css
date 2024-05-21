@@ -81,6 +81,13 @@
 }
 
 @media (max-width: 700px) {
+  .taskCardContent {
+    padding-bottom: 12px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+  }
+
   .taskCardButtonContainer {
     display: flex;
     flex-direction: column;
@@ -100,9 +107,18 @@
     background-color: #FAEF5D;
     color: #1D2B53;
     border-radius: 8px;
-    padding: 5px;
+    padding: 12px;
     margin-bottom: 8px;
     width: 100%;
   } 
 
+  .taskCardButton {
+    font-size: 9px;
+    font-weight: 300;
+    padding: 4px 8px;
+    border-radius: 20px;
+    margin: 3px;
+    cursor: pointer;
+    width: 120px;
+  }
 }

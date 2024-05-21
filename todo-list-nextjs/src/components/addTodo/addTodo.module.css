@@ -2,8 +2,8 @@
     background-color: #ffffff;
     background-position: 0% 0%;
     cursor: pointer;
-    height: 33px;
-    line-height: 33px;
+    height: 35px;
+    line-height: 35px;
     margin: 0;
     padding: 0 10px 5px 10px;
     display: inline-block;
@@ -13,7 +13,8 @@
     box-sizing: border-box;
     text-align: left;
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 800;
     word-spacing: 0px;
     border: none;
 }
@@ -24,7 +25,7 @@
     padding: 0 10px 5px 10px;
     align-items: end;
     display: flex;
-    justify-content: end;
+    justify-content: start;
 }
 
 .addButton {
@@ -75,7 +76,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 4rem 0;
+    padding: 20px 0;
     width: 50%;
 }
 

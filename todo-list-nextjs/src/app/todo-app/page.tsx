@@ -25,7 +25,7 @@ export default function Dashboard() {
       <section className={styles.todoList}>
         <div className="container">
           <article>
-            <label>Todo List</label>
+            <label>TODO LIST</label>
             {todos && todos.length > 0 ? (
               todos
                 .filter(
@@ -49,7 +49,7 @@ export default function Dashboard() {
         </div>
         <div className="container">
           <article>
-            <label>In Progress</label>
+            <label>IN PROGRESS</label>
             {todos && todos.length > 0 ? (
               todos
                 .filter(
@@ -74,7 +74,7 @@ export default function Dashboard() {
         </div>
         <div className="container">
           <article>
-            <label>Complete</label>
+            <label>COMPLETED</label>
             {todos && todos.length > 0 ? (
               todos
                 .filter(
@@ -99,7 +99,7 @@ export default function Dashboard() {
         </div>
         <div className="container">
           <article>
-            <label>Hold</label>
+            <label>HOLD</label>
             {todos && todos.length > 0 ? (
               todos
                 .filter(
