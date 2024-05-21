@@ -33,6 +33,10 @@ export default function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
+                    show={false}
+                    onClose={function (): void {}}
+                    onSave={function (): void {}}
+                    onDeleteModal={function (): void {}}
                     onComplete={handleCompleted}
                     onHold={handleHold}
                     onDelete={handleDelete}
@@ -58,6 +62,16 @@ export default function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
+                    show={false}
+                    onClose={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
+                    onSave={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
+                    onDeleteModal={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
                     onComplete={handleCompleted}
                     onHold={handleHold}
                     onDelete={handleDelete}
@@ -83,6 +97,16 @@ export default function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
+                    show={false}
+                    onClose={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
+                    onSave={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
+                    onDeleteModal={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
                     onComplete={handleCompleted}
                     onHold={handleHold}
                     onDelete={handleDelete}
@@ -107,6 +131,16 @@ export default function Dashboard() {
                 )
                 .map((todo) => (
                   <TodoCard
+                    show={false}
+                    onClose={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
+                    onSave={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
+                    onDeleteModal={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
                     onComplete={handleCompleted}
                     onHold={handleHold}
                     onDelete={handleDelete}

@@ -77,6 +77,7 @@ export default function AddTodoButton({
                 show={isModal}
                 onClose={handleCloseModal}
                 onSave={onNewSubmit}
+                onDeleteModal={function (): void {}}
               />
             </div>
           </div>
