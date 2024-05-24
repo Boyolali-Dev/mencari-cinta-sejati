@@ -56,7 +56,6 @@
     border-radius: 6px
 }
 
-/* garis untuk navbar */
 .hamburger {
     display: none;
     flex-direction: column;
