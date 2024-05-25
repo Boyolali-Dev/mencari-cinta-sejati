@@ -18,7 +18,7 @@
 .taskCardContent {
   font-weight: bold;
   text-align: justify;
-  padding-bottom: 16px;
+  padding-bottom: 8px;
   justify-content: center;
   align-items: center;
 }
@@ -28,6 +28,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 10px;
+  padding-top: 10px;
 }
 
 .taskCardButtonContainer p {
@@ -68,7 +69,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .cancelButton {
@@ -77,16 +78,11 @@
   color: red;
   font-size: 18px;
   cursor: pointer;
-  margin-left: auto;
+  margin-left: 10px;
 }
 
 .toggleButton {
-  background-color: #007BFF;
-  color: #ffffff;
-  border: none;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
+ display: none;
 }
 
 @media (max-width: 700px) {
@@ -134,5 +130,15 @@
     margin: 3px;
     cursor: pointer;
     width: 120px;
+  }
+
+  .toggleButton {
+    display: block;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
   }
 }

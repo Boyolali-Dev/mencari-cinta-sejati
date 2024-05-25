@@ -44,11 +44,17 @@ const TodoCard: React.FC<TodoCardProps> = ({
         <button className={styles.toggleButton} onClick={toggleDetails}>
           {showDetails ? "Hide" : "Show"} Details
         </button>
+          {(type === TodoCardStatus.Todo ||
+            type === TodoCardStatus.Completed) && (
+            <button className={styles.cancelButton} onClick={() => onDelete(id)}>
+              X
+            </button>
+          )}
       </div>
       <div className={classNames(styles.taskCardContent, { [styles.show]: showDetails })}>
         <p>{description}</p>
-        <p>Deadline: {deadline}</p>
         <div className={styles.taskCardButtonContainer}>
+        <p>Deadline: {deadline}</p>
           {type !== TodoCardStatus.Completed && (
             <button
               className={styles.taskCardButton}
@@ -76,13 +82,6 @@ const TodoCard: React.FC<TodoCardProps> = ({
               onClick={() => onHold(id)}
             >
               Hold
-            </button>
-          )}
-
-          {(type === TodoCardStatus.Todo ||
-            type === TodoCardStatus.Completed) && (
-            <button className={styles.cancelButton} onClick={() => onDelete(id)}>
-              X
             </button>
           )}
         </div>
