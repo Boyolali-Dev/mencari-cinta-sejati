@@ -57,7 +57,7 @@ type TodoFormValues = {
       setShowForm(true);
     };
   
-    const handleHideInput = async () => {
+    const handleHideInput = () => {
       setShowForm(false);
       reset();
     };
@@ -65,7 +65,6 @@ type TodoFormValues = {
     const onNewSubmit = async () => {
       handleSubmit(data => {
         customHandleSubmit(data.title, data.description, data.deadline, handleHideInput)
-        window.alert("Todo added successfully!")
       })()
     }
 

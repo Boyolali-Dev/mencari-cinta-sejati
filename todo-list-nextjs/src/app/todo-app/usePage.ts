@@ -102,15 +102,9 @@ export const usePage = () => {
   };
   const handleDelete = async (id: number) => {
     try {
-      const confirmed = window.confirm(
-        "Are you sure you want to delete this todo?"
-      );
-      if (confirmed) {
         setIsLoading(true);
         await removeTodo(id);
-        window.alert("Todo deleted successfully");
         fetchTodo();
-      }
     } catch (e) {
       throw new Error("Failed to delete data");
     }

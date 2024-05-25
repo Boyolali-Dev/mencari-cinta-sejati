@@ -12,8 +12,7 @@ type TodoCardProps = {
   onInProgress: (id: number) => void;
   onHold: (id: number) => void;
   onDelete: (id: number) => void;
-} & Todo &
-  ModalStatus;
+} & Todo;
 
 const TodoCard: React.FC<TodoCardProps> = ({
   id,
@@ -28,61 +27,63 @@ const TodoCard: React.FC<TodoCardProps> = ({
 }) => {
   const { isModal, handleOpenModal, handleCloseModal } = useModal();
   return (
-    <div className={styles.taskCard}>
-      <div className={styles.taskCardButtonContainer}>
-        <button
-          className={styles.cancelButton}
-          type="button"
-          title="Open Modal"
-          onClick={handleOpenModal}
-        >
-          X
-        </button>
-        <DeleteModal
-          show={isModal}
-          onClose={handleCloseModal}
-          onDeleteModal={() => onDelete(id)}
-          onSave={function (): void {}}
-        />
-      </div>
-      <div className={styles.taskCardContent}>
-        <h3>Activity: {title}</h3>
-        <p>{description}</p>
-      </div>
-      <div className={styles.taskCardButtonContainer}>
-        <p>Deadline: {deadline}</p>
-
-        {type !== TodoCardStatus.Completed && (
+    <>
+      <DeleteModal
+        show={isModal}
+        onClose={handleCloseModal}
+        onDeleteModal={() => onDelete(id)}
+        onSave={function (): void {}}
+      />
+      <div className={styles.taskCard}>
+        <div className={styles.taskCardButtonContainer}>
           <button
-            className={styles.taskCardButton}
-            onClick={() => onComplete(id)}
+            className={styles.cancelButton}
+            type="button"
+            title="Cancel"
+            onClick={handleOpenModal}
           >
-            Completed
+            X
           </button>
-        )}
+        </div>
+        <div className={styles.taskCardContent}>
+          <h3>Activity: {title}</h3>
+          <p>{description}</p>
+        </div>
+        <div className={styles.taskCardButtonContainer}>
+          <p>Deadline: {deadline}</p>
 
-        {(type === TodoCardStatus.Todo || type === TodoCardStatus.Hold) && (
-          <button
-            className={classNames(
-              styles.taskCardButton,
-              styles.inProgressButton
-            )}
-            onClick={() => onInProgress(id)}
-          >
-            In Progress
-          </button>
-        )}
+          {type !== TodoCardStatus.Completed && (
+            <button
+              className={styles.taskCardButton}
+              onClick={() => onComplete(id)}
+            >
+              Completed
+            </button>
+          )}
 
-        {type === TodoCardStatus.InProgress && (
-          <button
-            className={classNames(styles.taskCardButton, styles.holdButton)}
-            onClick={() => onHold(id)}
-          >
-            Hold
-          </button>
-        )}
+          {(type === TodoCardStatus.Todo || type === TodoCardStatus.Hold) && (
+            <button
+              className={classNames(
+                styles.taskCardButton,
+                styles.inProgressButton
+              )}
+              onClick={() => onInProgress(id)}
+            >
+              In Progress
+            </button>
+          )}
+
+          {type === TodoCardStatus.InProgress && (
+            <button
+              className={classNames(styles.taskCardButton, styles.holdButton)}
+              onClick={() => onHold(id)}
+            >
+              Hold
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
