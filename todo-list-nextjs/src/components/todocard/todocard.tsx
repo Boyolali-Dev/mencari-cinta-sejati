@@ -5,7 +5,6 @@ import { TodoCardStatus } from "../../models/todoCardStatus";
 import { Todo } from "../../models/todo";
 import DeleteModal from "../modal/deleteModal";
 import useModal from "../modal/useModal";
-import { ModalStatus } from "../../models/modalTodo";
 
 type TodoCardProps = {
   onComplete: (id: number) => void;
@@ -32,7 +31,6 @@ const TodoCard: React.FC<TodoCardProps> = ({
         show={isModal}
         onClose={handleCloseModal}
         onDeleteModal={() => onDelete(id)}
-        onSave={function (): void {}}
       />
       <div className={styles.taskCard}>
         <div className={styles.taskCardButtonContainer}>

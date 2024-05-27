@@ -3,7 +3,7 @@ import { usePage } from "../../app/todo-app/usePage";
 
 const useModal = () => {
     const [isModal, setModal] = useState(false);
-    const { handleDelete } = usePage();
+    const { handleDelete, customHandleSubmit } = usePage();
     
     const handleOpenModal = () => {
         setModal(true)
@@ -18,11 +18,16 @@ const useModal = () => {
         setModal(false)
     }
 
+    const handleSaveModal = () => {
+        setModal(false)
+    }
+
     return {
         isModal,
         handleOpenModal,
         handleCloseModal,
-        handleDeleteModal
+        handleDeleteModal,
+        handleSaveModal
     }
 }
 

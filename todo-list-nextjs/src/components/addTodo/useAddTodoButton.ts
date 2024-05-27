@@ -1,4 +1,3 @@
-import { Flavors } from "next/font/google";
 import { useState } from "react";
 import { useForm, Resolver } from "react-hook-form";
 
@@ -67,7 +66,7 @@ type TodoFormValues = {
         customHandleSubmit(data.title, data.description, data.deadline, handleHideInput)
       })()
     }
-
+    
     return{
         onNewSubmit,
         showForm,

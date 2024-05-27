@@ -12,7 +12,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, onSave }) => {
       <div id="id" className={styles.modal}>
         <div className={styles.modalContent}>
           <div className={styles.modalHeader}>
-            <h2>Are you sure you want to delete this task?</h2>
+            <h2>Are you sure you want to save this task?</h2>
           </div>
           <div className={styles.modalBody}>
             <br></br>

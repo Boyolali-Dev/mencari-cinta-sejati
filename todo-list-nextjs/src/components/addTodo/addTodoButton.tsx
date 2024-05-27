@@ -6,8 +6,6 @@ import { LuPlusCircle } from "react-icons/lu";
 import Modal from "../modal/saveModal";
 import useModal from "../modal/useModal";
 import React from "react";
-import Toasty from "../Toasty/toasty";
-import ToastySuccess from "../Toasty/useToasty";
 export default function AddTodoButton({
   customHandleSubmit,
 }: {
@@ -27,18 +25,17 @@ export default function AddTodoButton({
     handleHideInput,
     onNewSubmit,
   } = useAddTodoButton(customHandleSubmit);
+  const { isModal, handleOpenModal, handleCloseModal, handleSaveModal } =
+    useModal();
 
-  const { handleCloseToasty } = ToastySuccess();
-  const { isModal, handleOpenModal, handleCloseModal } = useModal();
+  const saveModal = () => {
+    onNewSubmit();
+    handleSaveModal();
+  };
 
   return (
     <>
-      <Modal
-        show={isModal}
-        onClose={handleCloseModal}
-        onSave={onNewSubmit}
-        onDeleteModal={function (): void {}}
-      />
+      <Modal show={isModal} onClose={handleCloseModal} onSave={saveModal} />
       <div>
         <form>
           <div className={styles.input}>
@@ -98,10 +95,6 @@ export default function AddTodoButton({
             )}
           </div>
         </form>
-        <Toasty
-          message="Success! Your task was added."
-          onClose={handleCloseToasty}
-        />
       </div>
     </>
   );

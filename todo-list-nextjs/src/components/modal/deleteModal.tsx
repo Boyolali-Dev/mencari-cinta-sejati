@@ -18,9 +18,7 @@ const DeleteModal: React.FC<ModalProps> = ({
           <div className={styles.modalHeader}>
             <h2>Are you sure you want to delete this task?</h2>
           </div>
-          <div className={styles.modalBody}>
-            <br></br>
-          </div>
+          <div className={styles.modalBody}></div>
           <div className={styles.modalFooter}>
             <button className={styles.closeButton} onClick={onClose}>
               Cancel

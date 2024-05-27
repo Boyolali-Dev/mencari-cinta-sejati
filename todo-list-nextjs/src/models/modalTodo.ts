@@ -1,6 +1,6 @@
 export type ModalStatus = {
     show: boolean,
-    onClose: () => void,
-    onSave: () => void,
-    onDeleteModal: () => void
+    onClose?: () => void,
+    onSave?: () => void,
+    onDeleteModal?: () => void
 }
