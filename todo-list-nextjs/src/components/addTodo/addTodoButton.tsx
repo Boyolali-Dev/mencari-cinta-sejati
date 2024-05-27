@@ -70,7 +70,7 @@ export default function AddTodoButton({
                 title="Cancel"
                 onClick={handleHideInput}
               >
-                Cancel
+                CANCEL
               </button>
               <button
                 className={styles.submitButton}
@@ -78,7 +78,7 @@ export default function AddTodoButton({
                 title="Open Modal"
                 onClick={handleOpenModal}
               >
-                Save
+                SAVE
               </button>
             </div>
           </div>
