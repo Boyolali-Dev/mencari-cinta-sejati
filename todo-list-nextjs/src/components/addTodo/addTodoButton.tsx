@@ -3,7 +3,8 @@
 import styles from "./addTodo.module.css";
 import { useAddTodoButton } from "./useAddTodoButton";
 import { LuPlusCircle } from "react-icons/lu";
-import { addTodo } from "../../lib/firebase/setting";
+import Modal from "../modal/saveModal";
+import useModal from "../modal/useModal";
 import React from "react";
 export default function AddTodoButton({
   customHandleSubmit,
@@ -24,9 +25,17 @@ export default function AddTodoButton({
     handleHideInput,
     onNewSubmit,
   } = useAddTodoButton(customHandleSubmit);
+  const { isModal, handleOpenModal, handleCloseModal, handleSaveModal } =
+    useModal();
+
+  const saveModal = () => {
+    onNewSubmit();
+    handleSaveModal();
+  };
 
   return (
-    <form>
+    <>
+      <Modal show={isModal} onClose={handleCloseModal} onSave={saveModal} />
       <div className={styles.input}>
         {showForm ? (
           <div className={styles.container}>
@@ -65,10 +74,10 @@ export default function AddTodoButton({
               <button
                 className={styles.submitButton}
                 type="button"
-                title="Submit"
-                onClick={onNewSubmit}
+                title="Open Modal"
+                onClick={handleOpenModal}
               >
-                Add Todo
+                Save
               </button>
             </div>
           </div>
@@ -83,6 +92,6 @@ export default function AddTodoButton({
           </button>
         )}
       </div>
-    </form>
+    </>
   );
 }

@@ -43,7 +43,7 @@ type TodoFormValues = {
       reset,
     } = useForm<TodoFormValues>({ resolver });
     const [showForm, setShowForm] = useState(false);
-      
+
     const handleTitleChange = (event) => {
       setShowForm(event.target.value);
     };
@@ -64,10 +64,9 @@ type TodoFormValues = {
     const onNewSubmit = async () => {
       handleSubmit(data => {
         customHandleSubmit(data.title, data.description, data.deadline, handleHideInput)
-        window.alert("Todo added successfully!")
       })()
     }
-
+    
     return{
         onNewSubmit,
         showForm,
