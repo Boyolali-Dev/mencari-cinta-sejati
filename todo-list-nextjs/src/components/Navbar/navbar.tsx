@@ -1,13 +1,27 @@
+"use client"
 import Link from "next/link";
 import styles from "./navbar.module.css";
-import React from "react";
+import React, {useState} from "react";
+import classNames from "classnames";
 
 const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const toggleMenu = () => {
+    setIsOpen(prevState => !prevState);
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.flex}>
-          <div className={styles.hidden}>
+          <div className={styles.hamburger} onClick={toggleMenu}>
+            <div className={styles.hamburgerLine}></div>
+            <div className={styles.hamburgerLine}></div>
+            <div className={styles.hamburgerLine}></div>
+          </div>
+          <div className={classNames(styles.hidden, {
+            [styles.showMenu]: isOpen
+          })}>
             <div className={styles.flexSpace}>
               <Link href="/" passHref className={styles.buttonNavbar}>
                 Home
@@ -23,7 +37,6 @@ const Navbar: React.FC = () => {
               </Link>
             </div>
           </div>
-        </div>
       </div>
     </nav>
   );

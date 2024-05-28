@@ -6,6 +6,7 @@ import { LuPlusCircle } from "react-icons/lu";
 import Modal from "../modal/saveModal";
 import useModal from "../modal/useModal";
 import React from "react";
+
 export default function AddTodoButton({
   customHandleSubmit,
 }: {
@@ -42,7 +43,7 @@ export default function AddTodoButton({
             <input
               className={styles.inputTitle}
               type="text"
-              placeholder="Todo title"
+              placeholder="Title"
               {...register("title", { required: true })}
               required
             />
@@ -50,7 +51,7 @@ export default function AddTodoButton({
             <input
               className={styles.inputDescription}
               type="text"
-              placeholder="Deskripsi"
+              placeholder="Description"
               {...register("description", { required: true })}
               onChange={handleDescriptionChange}
               required
@@ -69,7 +70,7 @@ export default function AddTodoButton({
                 title="Cancel"
                 onClick={handleHideInput}
               >
-                Cancel
+                CANCEL
               </button>
               <button
                 className={styles.submitButton}
@@ -77,7 +78,7 @@ export default function AddTodoButton({
                 title="Open Modal"
                 onClick={handleOpenModal}
               >
-                Save
+                SAVE
               </button>
             </div>
           </div>
@@ -88,7 +89,7 @@ export default function AddTodoButton({
             type="button"
             onClick={handleShowInput}
           >
-            <LuPlusCircle className={styles.buttonAdd} /> Add Task
+            <LuPlusCircle className={styles.buttonAdd} /> ADD TASK
           </button>
         )}
       </div>

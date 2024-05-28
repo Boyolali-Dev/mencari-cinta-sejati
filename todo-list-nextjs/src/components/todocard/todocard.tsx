@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./todocard.module.css";
 import { TodoCardStatus } from "../../models/todoCardStatus";
 import { Todo } from "../../models/todo";
@@ -24,32 +24,37 @@ const TodoCard: React.FC<TodoCardProps> = ({
   onHold,
   onDelete,
 }) => {
+  const [showDetails, setShowDetails] = useState(false);
+
+  const toggleDetails = () => {
+    setShowDetails(prevState => !prevState);
+  };
+
   const { isModal, handleOpenModal, handleCloseModal } = useModal();
+
   return (
-    <>
+    <div className={styles.taskCard}>
       <DeleteModal
         show={isModal}
         onClose={handleCloseModal}
         onDeleteModal={() => onDelete(id)}
       />
-      <div className={styles.taskCard}>
+      <div className={styles.taskCardHeader}>
+        <h3>Activity: {title}</h3>
+        <button className={styles.toggleButton} onClick={toggleDetails}>
+          {showDetails ? "Hide" : "Show"} Details
+        </button>
+          {(type === TodoCardStatus.Todo ||
+            type === TodoCardStatus.Completed) && (
+            <button className={styles.cancelButton} onClick={handleOpenModal}>
+              X
+            </button>
+          )}
+      </div>
+      <div className={classNames(styles.taskCardContent, { [styles.show]: showDetails })}>
+        <p>{description}</p>
         <div className={styles.taskCardButtonContainer}>
-          <button
-            className={styles.cancelButton}
-            type="button"
-            title="Cancel"
-            onClick={handleOpenModal}
-          >
-            X
-          </button>
-        </div>
-        <div className={styles.taskCardContent}>
-          <h3>Activity: {title}</h3>
-          <p>{description}</p>
-        </div>
-        <div className={styles.taskCardButtonContainer}>
-          <p>Deadline: {deadline}</p>
-
+        <p>Deadline: {deadline}</p>
           {type !== TodoCardStatus.Completed && (
             <button
               className={styles.taskCardButton}
@@ -81,7 +86,7 @@ const TodoCard: React.FC<TodoCardProps> = ({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,3 +1,19 @@
+:root {
+  --brown: #6b3e19;
+  --cream: #f6d377;
+  --tortila: #ffe296;
+  --lavender: #632344;
+  --purple: #6d214e;
+  --lylac: #f3958d;
+  --magenta: #FF004D;
+  --green: rgb(23, 119, 4);
+  --yellow: rgb(255, 217, 0);
+  --red: rgb(255, 17, 0);
+  --black: #000000;
+  --white: #ffff;
+  --blue: #1d2b53;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

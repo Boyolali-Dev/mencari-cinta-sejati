@@ -1,29 +1,32 @@
 .button {
-    background-color: #ffffff;
+    background-color: var(--white);
     background-position: 0% 0%;
     cursor: pointer;
-    height: 33px;
-    line-height: 33px;
+    height: 35px;
+    line-height: 35px;
     margin: 0;
-    padding: 0 0 10px 0;
+    padding: 0 10px 5px 10px;
     display: inline-block;
     transform: none;
     transition: opacity 0.2 ease-in-out 0s;
-    outline:  rgb(220, 76, 62) none 0px;
+    outline:  var(--magenta) none 0px;
     box-sizing: border-box;
     text-align: left;
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 800;
     word-spacing: 0px;
     border: none;
+    color: var(--blue);
 }
 
 .containerButton {
     margin-top: 10px;
     margin-left: auto;
+    padding: 0 10px 5px 10px;
     align-items: end;
     display: flex;
-    justify-content: end;
+    justify-content: start;
 }
 
 .addButton {
@@ -39,13 +42,12 @@
     border-radius: 4px;
     outline: none;
     font-size: 16px;
-    background-color: #D31C1C;
-    color: #ffffff;
-    cursor: pointer;
+    background-color: var(--cream);
+    color: var(--magenta);
 } 
 
 .cancelButton:hover {
-    background-color: rgb(161, 4, 4);
+    background-color: var(--yellow);
 }
     
 .submitButton {
@@ -55,18 +57,17 @@
     border-radius: 4px;
     outline: none;
     font-size: 16px;
-    background-color: #1CD3C7;
-    color: #ffffff;
-    cursor: pointer;
+    background-color: var(--magenta);
+    color: var(--cream);
 }
 
 .submitButton:hover {
-    background-color: rgb(0, 131, 122);
+    background-color: var(--red);
 }
 
 .button:hover {
     opacity: 0.8;
-    color: #DC4C3E;
+    color: var(--magenta);
 }
 
 .input {
@@ -74,7 +75,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 4rem 0;
+    padding: 20px 0;
     width: 50%;
 }
 
@@ -100,7 +101,7 @@
 .inputTitle:hover {
     outline-offset: initial;
     outline: dashed;
-    outline-color: #DC4C3E;
+    outline-color: var(--purple);
 }
 
 .inputDescription {
@@ -116,7 +117,7 @@
 .inputDescription:hover {
     outline-offset: initial;
     outline: dashed;
-    outline-color: #DC4C3E;
+    outline-color: var(--purple);
 }
 
 .inputLabel {
@@ -137,4 +138,24 @@
     border-radius: 4px;
     outline: none;
     font-size: 16px;
+}
+
+@media (max-width:700px) {
+    .input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px 10px 10px;
+        width: 100%;
+    }
+    
+    .container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 2px;
+        margin: 2px;
+    }
 }
