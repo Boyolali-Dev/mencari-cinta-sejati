@@ -1,5 +1,5 @@
 .button {
-    background-color: #ffffff;
+    background-color: var(--white);
     background-position: 0% 0%;
     cursor: pointer;
     height: 35px;
@@ -9,8 +9,7 @@
     display: inline-block;
     transform: none;
     transition: opacity 0.2 ease-in-out 0s;
-    /* outline:  rgb(220, 76, 62) none 0px; */
-    outline:  #FF004D none 0px;
+    outline:  var(--magenta) none 0px;
     box-sizing: border-box;
     text-align: left;
     white-space: nowrap;
@@ -18,7 +17,7 @@
     font-weight: 800;
     word-spacing: 0px;
     border: none;
-    color: #1D2B53;
+    color: var(--blue);
 }
 
 .containerButton {
@@ -43,14 +42,12 @@
     border-radius: 4px;
     outline: none;
     font-size: 16px;
-    background-color: #D31C1C;
-    color: #ffffff;
-    cursor: pointer;
+    background-color: var(--cream);
+    color: var(--magenta);
 } 
 
 .cancelButton:hover {
-    /* background-color: rgb(161, 4, 4); */
-    background-color: #f1e100;
+    background-color: var(--yellow);
 }
     
 .submitButton {
@@ -60,20 +57,17 @@
     border-radius: 4px;
     outline: none;
     font-size: 16px;
-    background-color: #1CD3C7;
-    color: #ffffff;
-    cursor: pointer;
+    background-color: var(--magenta);
+    color: var(--cream);
 }
 
 .submitButton:hover {
-    /* background-color: rgb(0, 131, 122); */
-    background-color: #81052a;
+    background-color: var(--red);
 }
 
 .button:hover {
     opacity: 0.8;
-    /* color: #DC4C3E; */
-    color: #FF004D;
+    color: var(--magenta);
 }
 
 .input {
@@ -107,7 +101,7 @@
 .inputTitle:hover {
     outline-offset: initial;
     outline: dashed;
-    outline-color: #7E2553;
+    outline-color: var(--purple);
 }
 
 .inputDescription {
@@ -123,7 +117,7 @@
 .inputDescription:hover {
     outline-offset: initial;
     outline: dashed;
-    outline-color: #7E2553;
+    outline-color: var(--purple);
 }
 
 .inputLabel {

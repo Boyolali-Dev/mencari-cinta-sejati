@@ -27,7 +27,7 @@ const TodoCard: React.FC<TodoCardProps> = ({
   const [showDetails, setShowDetails] = useState(false);
 
   const toggleDetails = () => {
-    setShowDetails(!showDetails);
+    setShowDetails(prevState => !prevState);
   };
 
   const { isModal, handleOpenModal, handleCloseModal } = useModal();
