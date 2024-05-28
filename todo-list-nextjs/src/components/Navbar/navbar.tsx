@@ -2,6 +2,7 @@
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import React, {useState} from "react";
+import classNames from "classnames";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -18,7 +19,9 @@ const Navbar: React.FC = () => {
             <div className={styles.hamburgerLine}></div>
             <div className={styles.hamburgerLine}></div>
           </div>
-          <div className={`${styles.hidden} ${isOpen ? styles.showMenu: ""}`}>
+          <div className={classNames(styles.hidden, {
+            [styles.showMenu]: isOpen
+          })}>
             <div className={styles.flexSpace}>
               <Link href="/" passHref className={styles.buttonNavbar}>
                 Home
