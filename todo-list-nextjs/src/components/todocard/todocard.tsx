@@ -46,7 +46,7 @@ const TodoCard: React.FC<TodoCardProps> = ({
         </button>
           {(type === TodoCardStatus.Todo ||
             type === TodoCardStatus.Completed) && (
-            <button className={styles.cancelButton} onClick={() => onDelete(id)}>
+            <button className={styles.cancelButton} onClick={handleOpenModal}>
               X
             </button>
           )}
