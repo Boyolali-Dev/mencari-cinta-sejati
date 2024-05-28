@@ -36,65 +36,61 @@ export default function AddTodoButton({
   return (
     <>
       <Modal show={isModal} onClose={handleCloseModal} onSave={saveModal} />
-      <div>
-        <form>
-          <div className={styles.input}>
-            {showForm ? (
-              <div className={styles.container}>
-                <input
-                  className={styles.inputTitle}
-                  type="text"
-                  placeholder="Todo title"
-                  {...register("title", { required: true })}
-                  required
-                />
-                {errors?.title && <p>{errors?.title?.message}</p>}
-                <input
-                  className={styles.inputDescription}
-                  type="text"
-                  placeholder="Deskripsi"
-                  {...register("description", { required: true })}
-                  onChange={handleDescriptionChange}
-                  required
-                />
-                <label className={styles.inputLabel}>Deadline</label>
-                <input
-                  className={styles.inputDate}
-                  type="date"
-                  {...register("deadline", { required: true })}
-                  required
-                />
-                <div className={styles.containerButton}>
-                  <button
-                    className={styles.cancelButton}
-                    type="button"
-                    title="Cancel"
-                    onClick={handleHideInput}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    className={styles.submitButton}
-                    type="button"
-                    title="Open Modal"
-                    onClick={handleOpenModal}
-                  >
-                    Save
-                  </button>
-                </div>
-              </div>
-            ) : (
+      <div className={styles.input}>
+        {showForm ? (
+          <div className={styles.container}>
+            <input
+              className={styles.inputTitle}
+              type="text"
+              placeholder="Todo title"
+              {...register("title", { required: true })}
+              required
+            />
+            {errors?.title && <p>{errors?.title?.message}</p>}
+            <input
+              className={styles.inputDescription}
+              type="text"
+              placeholder="Deskripsi"
+              {...register("description", { required: true })}
+              onChange={handleDescriptionChange}
+              required
+            />
+            <label className={styles.inputLabel}>Deadline</label>
+            <input
+              className={styles.inputDate}
+              type="date"
+              {...register("deadline", { required: true })}
+              required
+            />
+            <div className={styles.containerButton}>
               <button
-                className={styles.button}
-                title="Add Todo"
+                className={styles.cancelButton}
                 type="button"
-                onClick={handleShowInput}
+                title="Cancel"
+                onClick={handleHideInput}
               >
-                <LuPlusCircle className={styles.buttonAdd} /> Add Task
+                Cancel
               </button>
-            )}
+              <button
+                className={styles.submitButton}
+                type="button"
+                title="Open Modal"
+                onClick={handleOpenModal}
+              >
+                Save
+              </button>
+            </div>
           </div>
-        </form>
+        ) : (
+          <button
+            className={styles.button}
+            title="Add Todo"
+            type="button"
+            onClick={handleShowInput}
+          >
+            <LuPlusCircle className={styles.buttonAdd} /> Add Task
+          </button>
+        )}
       </div>
     </>
   );
