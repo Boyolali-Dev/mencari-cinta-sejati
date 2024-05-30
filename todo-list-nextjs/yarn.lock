@@ -2359,10 +2359,10 @@ react-dom@^18, react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-hook-form@^7.51.4:
-  version "7.51.4"
-  resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.51.4.tgz"
-  integrity sha512-V14i8SEkh+V1gs6YtD0hdHYnoL4tp/HX/A45wWQN15CYr9bFRmmRdYStSO5L65lCCZRF+kYiSKhm9alqbcdiVA==
+react-hook-form@^7.51.5:
+  version "7.51.5"
+  resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.51.5.tgz"
+  integrity sha512-J2ILT5gWx1XUIJRETiA7M19iXHlG74+6O3KApzvqB/w8S5NQR7AbU8HVZrMALdmDgWpRPYiZJl0zx8Z4L2mP6Q==
 
 react-icons@^5.2.1:
   version "5.2.1"
@@ -2827,11 +2827,6 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
-
-use-react-form@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/use-react-form/-/use-react-form-0.0.1.tgz"
-  integrity sha512-ErRcvRjf3be5x1ujvN6WiZIDZIz3GfCk/U/h6e/MzqlC6reMKOQ/u13bk8g/BtAcrwuYxIHArz4/w0utvS7QTg==
 
 websocket-driver@>=0.5.1:
   version "0.7.4"
