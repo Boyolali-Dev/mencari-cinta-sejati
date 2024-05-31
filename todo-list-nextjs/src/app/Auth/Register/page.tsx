@@ -4,6 +4,8 @@ import React from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { RegisterType } from "../../../models/register";
 import style from "./style.module.css";
+import Image from "next/image";
+import Link from "next/link";
 
 type FormValues = RegisterType;
 
@@ -177,7 +179,6 @@ export default function RegisterForm() {
                   {errors.confirmPassword && (
                     <p className={style.p}>{errors.confirmPassword.message}</p>
                   )}
-
                   <label className={style.label}>Gender</label>
                   <select
                     {...register("gender", { required: "Gender is required" })}
@@ -189,8 +190,31 @@ export default function RegisterForm() {
                   </select>
                   {errors.gender && <p>{errors.gender.message}</p>}
 
-                  <input type="submit" className={style.input} />
+                  <div className={style.formSubmit}>
+                    <input type="submit" className={style.input} />
+                  </div>
                 </form>
+                <hr className={style.hr}></hr>
+                <div className={style.loginContent}>
+                  <p className={style.login}>
+                    Already have an account?{" "}
+                    <Link href="/Auth/Login" className={style.link}>
+                      Go to login
+                    </Link>
+                  </p>
+                </div>
+              </div>
+              <div className={style.imageContainer}>
+                <div className={style.imageContent}>
+                  <div className={style.imageControl}>
+                    <Image
+                      src="/Untitled-1.png"
+                      alt="Register"
+                      width={400}
+                      height={400}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
