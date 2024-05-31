@@ -6,6 +6,7 @@ import { RegisterType } from "../../../models/register";
 import style from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { registerUser } from "../../../lib/firebase/authSetting";
 
 type FormValues = RegisterType;
 
@@ -19,7 +20,8 @@ export default function RegisterForm() {
   } = useForm<FormValues>({});
   const pwd = watch("password", "");
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    alert(JSON.stringify(data));
+    await registerUser(data);
+    alert("Register Success");
   };
 
   return (

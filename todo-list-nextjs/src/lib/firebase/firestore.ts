@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get } from "firebase/database";
+import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
 
 // Firebase configuration (using your environment variables)
 const firebaseConfig = {
@@ -16,6 +16,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
 
-export { db };
+const realtimeDb = getDatabase(app);
+
+const firebaseDb = getFirestore(app)
+
+export { firebaseDb, realtimeDb };
