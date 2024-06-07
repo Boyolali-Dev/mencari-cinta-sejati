@@ -1,11 +1,11 @@
 import { genderStatus } from "./genderStatus";
 
-export type RegisterType = {
-username: string;
-  firstName: string;
-  lastName: string;
+export type AuthType = {
+  username?: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
   password: string | number;
-  confirmPassword: string | number;
-  gender: genderStatus;
+  confirmPassword?: string | number;
+  gender?: genderStatus;
 }

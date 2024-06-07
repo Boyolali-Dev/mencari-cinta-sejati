@@ -2,13 +2,13 @@
 
 import React from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { RegisterType } from "../../../models/register";
+import { AuthType } from "../../../models/register";
 import style from "./style.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { registerUser } from "../../../lib/firebase/authSetting";
 
-type FormValues = RegisterType;
+type FormValues = AuthType;
 
 export default function RegisterForm() {
   const {
@@ -17,11 +17,13 @@ export default function RegisterForm() {
     watch,
     control,
     formState: { errors },
+    reset,
   } = useForm<FormValues>({});
   const pwd = watch("password", "");
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     await registerUser(data);
     alert("Register Success");
+    reset();
   };
 
   return (
@@ -35,7 +37,7 @@ export default function RegisterForm() {
                   <h1 className={style.h1}>Register</h1>
                 </div>
                 <div className={style.spacer}></div>
-                <form onSubmit={handleSubmit(onSubmit)} className="form">
+                <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
                   <div className={style.formGroup}>
                     <div className={style.formControl}>
                       <span className={style.formLabel}>
