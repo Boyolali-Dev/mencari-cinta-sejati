@@ -1,0 +1,360 @@
+.container {
+    -webkit-app-region: drag;
+    background-color: #fff;
+    padding: 24px;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .gapContainer {
+    gap: 32px;
+    width: 940px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  .formContainer {
+    align-items: stretch;
+    gap:32px;
+    width: auto;
+    padding-top: 12px;
+    justify-content: flex-start;
+    flex-direction: row;
+    display: flex;
+    flex-basis: auto;
+    min-width: 0;
+    height: 100%;
+    flex-grow: 1;
+    background-color: initial;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .formContainerContent {
+    -webkit-app-region: no-drag;
+    min-width: 100%;
+    gap: 16px;
+    width: 100%;
+    padding-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    min-width: 0;
+    height: 100%;
+    flex-grow: 1;
+    background-color: initial;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .title {
+    background-color: initial;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .h1 {
+    font-size: 32px;
+    color: #202020;
+    font-weight: 700;
+  }
+  
+  .spacer {
+    padding: 4px;
+    background-color: initial;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+
+  .auth {
+    gap: 12px;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .authContent {
+    min-width: 68px;
+    background-color: transparent;
+    border-color: #f5f5f5;
+    color: inherit !important;
+    border-radius: 8px;
+    border: 1px solid #f5f5f5;
+    font-size: 18px;
+    font-weight: 700;
+    height: 48px;
+    line-height: 36px;
+    padding: 0;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    font: inherit;
+    font-weight: 600;
+    vertical-align: initial;
+  }
+
+  .authContent:hover{
+    background-color: var(--white);
+    color: var(--black) !important;
+    border-color: var(--white);
+    transition: 0.3s;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+
+  .formSubmit {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 16px;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .formControl {
+    outline: 1px solid #e6e6e6;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    overflow: clip;
+    padding: 8px 8px 4px 8px;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .formLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .label {
+    cursor: text;
+    flex-grow: 1;
+    font-size: 12px;
+    color: var(--black);
+    font-weight: 400;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: initial;
+  }
+  
+  .formInput {
+    height: 24px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    width: 100%;
+  }
+
+  .selectInput {
+    height: 40px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    width: 100%;
+    appearance: none;
+  }
+
+  .selectInput::-ms-expand{
+    display: none;
+  }
+
+  .selectInput::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-top-color: #333;
+  }
+
+  .imageContainer {
+    --ractist-column-gap: 0px;
+    flex-direction: row;
+    display: block;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+  }
+
+  .imageContent {
+    right: -25%;
+    bottom: 0;
+    margin: auto;
+    position: relative;
+    top: 0;
+    z-index: 5;
+    flex-basis: auto;
+    min-width: 0;
+    height: 100%;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+  }
+
+  .imageControl {
+    margin-left: 32px;
+    padding-left: 16px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+  }
+
+  .image {
+    list-style: none;
+    margin: 0;
+    border: 0;
+    font: inherit;
+  }
+  
+  .input[type="text"],
+  .input[type="email"],
+  .input[type="password"] {
+    height: 24px;
+    padding: 0;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    width: 100%;
+  }
+  
+  .input[type="submit"] {
+    background-color: var(--lavender);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .input[type="submit"]:hover {
+    background-color: #4b1635;
+  }
+  
+  .p {
+    color: red;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hr {
+    border-bottom: 1px solid var(--white);
+  }
+
+  .loginContent {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .link {
+    color: inherit;
+    text-decoration: underline;
+  }
