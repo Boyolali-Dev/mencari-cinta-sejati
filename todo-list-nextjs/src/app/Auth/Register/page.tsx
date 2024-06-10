@@ -164,6 +164,7 @@ export default function RegisterForm() {
                             {...field}
                             type="password"
                             className={style.input}
+                            placeholder="Enter your confirm password..."
                           />
                         )}
                       />
@@ -202,7 +203,7 @@ export default function RegisterForm() {
               <div className={style.imageContent}>
                 <div className={style.imageControl}>
                   <Image
-                    src="/Register.png"
+                    src="/assets/image/Register.png"
                     alt="Register"
                     width={400}
                     height={400}

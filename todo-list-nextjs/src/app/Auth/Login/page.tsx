@@ -105,7 +105,7 @@ export default function LoginForm() {
               <div className={style.imageContent}>
                 <div className={style.imageControl}>
                   <Image
-                    src="/Register.png"
+                    src="/assets/image/Register.png"
                     alt="Register"
                     width={400}
                     height={400}

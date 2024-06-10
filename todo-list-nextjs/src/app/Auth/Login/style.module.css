@@ -29,7 +29,6 @@
   }
   .formContainer {
     align-items: stretch;
-    --reactist-column-gap: 12px;
     gap:32px;
     width: auto;
     padding-top: 12px;
@@ -135,9 +134,9 @@
   }
 
   .authContent:hover{
-    background-color: #f5f5f5;
-    color: #202020 !important;
-    border-color: #f5f5f5;
+    background-color: var(--white);
+    color: var(--black) !important;
+    border-color: var(--white);
     transition: 0.3s;
   }
 
@@ -209,7 +208,7 @@
     cursor: text;
     flex-grow: 1;
     font-size: 12px;
-    color: #202020;
+    color: var(--black);
     font-weight: 400;
     box-sizing: border-box;
     list-style: none;
@@ -326,7 +325,7 @@
   }
   
   .input[type="submit"] {
-    background-color: #6D214E;
+    background-color: var(--lavender);
     color: white;
     border: none;
     padding: 0.75rem;
@@ -347,7 +346,7 @@
   }
   
   .hr {
-    border-bottom: 1px solid #f5f5f5;
+    border-bottom: 1px solid var(--white);
   }
 
   .loginContent {
