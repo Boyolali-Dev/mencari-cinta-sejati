@@ -27,23 +27,6 @@
     font: inherit;
     vertical-align: initial;
   }
-  
-  .gapForm {
-    align-items: stretch;
-    --reactist-column-gap: 12px;
-    width: auto;
-    padding-top: 12px;
-    justify-content: flex-start;
-    flex-direction: row;
-    display: flex;
-    box-sizing: border-box;
-    list-style: none;
-    margin: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: initial;
-  }
-  
   .formContainer {
     align-items: stretch;
     --reactist-column-gap: 12px;

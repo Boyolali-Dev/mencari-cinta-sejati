@@ -6,16 +6,20 @@ import bcript from "bcryptjs"
 type RegisterUserType = AuthType; 
 
 async function getNextUserId() {
-    const counterDocRef = doc(firebaseDb, "counters", "userId");
-    const counterDocSnap = await getDoc(counterDocRef)
-
-    if(counterDocSnap.exists()) {
-        const currentId = counterDocSnap.data().currentId;
-        await updateDoc(counterDocRef, { currentId: currentId + 1})
-        return currentId + 1
-    } else {
-        await setDoc(counterDocRef, {currentId: 1})
-        return 1
+    try {
+        const counterDocRef = doc(firebaseDb, "counters", "userId");
+        const counterDocSnap = await getDoc(counterDocRef)
+    
+        if(counterDocSnap.exists()) {
+            const currentId = counterDocSnap.data().currentId;
+            await updateDoc(counterDocRef, { currentId: currentId + 1})
+            return currentId + 1
+        } else {
+            await setDoc(counterDocRef, {currentId: 1})
+            return 1
+        }
+    } catch(e) {
+        console.error("Error adding document: ", e);
     }
 }
 
